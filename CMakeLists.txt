@@ -1,7 +1,7 @@
 
 
 cmake_minimum_required(VERSION 3.2)
-project(Aether VERSION 0.1.0 LANGUAGES Fortran C CXX)
+project(Aether VERSION 0.1.1 LANGUAGES Fortran C CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
