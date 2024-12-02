@@ -255,7 +255,7 @@ jobs:
     - name: Setup tests
       shell: bash
       run: |
-        mkdir output
+        mkdir -p Output/Ventilation
 
         if [ "${{ runner.os }}" == "Windows" ]; then
           multi_config_dir=/${{ matrix.config.build_type }}
@@ -276,16 +276,16 @@ jobs:
     - name: Test ventilation
       shell: bash
       run: |
-        echo "1:"
-        ls
-        echo "2:"
-        ls $GITHUB_WORKSPACE
-        echo "3:"
-        ls $GITHUB_WORKSPACE/lungapps
-        echo "4:"
-        ls
-        cd output
 
         ${{ steps.create-venv.outputs.python_exe }} $GITHUB_WORKSPACE/lungapps/ventilation_model.py
         
+        echo "1:"
+        ls
+        echo "2:"
+        ls $GITHUB_WORKSPACE/Output
+        echo "3:"
+        ls $GITHUB_WORKSPACE/lungapps
+        echo "4:"
+        ls $GITHUB_WORKSPACE/Output/Ventilation
+
         exit $?
