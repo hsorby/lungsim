@@ -278,14 +278,13 @@ jobs:
       run: |
 
         ${{ steps.create-venv.outputs.python_exe }} $GITHUB_WORKSPACE/lungapps/ventilation_model.py
-        
-        echo "1:"
-        ls
-        echo "2:"
-        ls $GITHUB_WORKSPACE/Output
-        echo "3:"
-        ls $GITHUB_WORKSPACE/lungapps
-        echo "4:"
-        ls $GITHUB_WORKSPACE/Output/Ventilation
+
+        exit $?
+
+    - name: Test Burrowes 2009
+      shell: bash
+      run: |
+
+        ${{ steps.create-venv.outputs.python_exe }} $GITHUB_WORKSPACE/lungapps/perfusion_Burrowes2009.py
 
         exit $?
