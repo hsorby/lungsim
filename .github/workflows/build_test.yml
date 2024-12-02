@@ -241,7 +241,11 @@ jobs:
     - name: Test lungsim Fortran
       shell: bash
       run: |
+        echo "first look:"
+        ls
         cd build-lungsim
+        echo "second look:"
+        ls
         ctest
 
     - name: Test lungsim Python
