@@ -243,7 +243,11 @@ jobs:
           message(FATAL_ERROR "Build failed.")
         endif()
 
-    - name: Test lungsim
+    - name: Test lungsim Fortran
+      shell: bash
+      run: ctest
+
+    - name: Test lungsim Python
       shell: bash
       run: |
         if [ "${{ runner.os }}" == "Windows" ]; then
