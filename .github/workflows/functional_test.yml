@@ -286,6 +286,6 @@ jobs:
         ls
         cd output
 
-        ${{ steps.create-venv.outputs.python_exe }} $GITHUB_WORKSPACE/lungapps/ventilation.py
+        ${{ steps.create-venv.outputs.python_exe }} $GITHUB_WORKSPACE/lungapps/ventilation_model.py
         
         exit $?
