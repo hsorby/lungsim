@@ -256,6 +256,7 @@ jobs:
       shell: bash
       run: |
         mkdir -p Output/Ventilation
+        mkdir Output/Perfusion
 
         if [ "${{ runner.os }}" == "Windows" ]; then
           multi_config_dir=/${{ matrix.config.build_type }}
