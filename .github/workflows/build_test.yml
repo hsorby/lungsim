@@ -240,7 +240,9 @@ jobs:
 
     - name: Test lungsim Fortran
       shell: bash
-      run: ctest
+      run: |
+        cd build-lungsim
+        ctest
 
     - name: Test lungsim Python
       shell: bash
