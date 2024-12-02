@@ -276,6 +276,14 @@ jobs:
     - name: Test ventilation
       shell: bash
       run: |
+        echo "1:"
+        ls
+        echo "2:"
+        ls $GITHUB_WORKSPACE
+        echo "3:"
+        ls $GITHUB_WORKSPACE/lungapps
+        echo "4:"
+        ls
         cd output
 
         ${{ steps.create-venv.outputs.python_exe }} $GITHUB_WORKSPACE/lungapps/ventilation.py
