@@ -1,8 +1,8 @@
 #include "lymphatics.h"
 #include "string.h"
 
-void alveolar_capillary_flux_c(int *num_nodes, int *write_out);
-void lymphatic_transport_c(const char *filename, int *filename_len);
+extern void alveolar_capillary_flux_c(int *num_nodes, int *write_out);
+extern void lymphatic_transport_c(const char *filename, int *filename_len);
 
 
 void alveolar_capillary_flux(int num_nodes, int write_out)
