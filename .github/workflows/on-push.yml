@@ -115,7 +115,7 @@ jobs:
       - name: Generate build instructions - Windows
         if: runner.os == 'Windows'
         run: |
-          abs_fc=$(where ${{ steps.setup-fortran.outputs.fc }})
+          where ${{ steps.setup-fortran.outputs.fc }} | Out-Variable abs_fc
 
           echo "Absolute path to fc: $abs_fc"
           where ${{ steps.setup-fortran.outputs.fc }}
