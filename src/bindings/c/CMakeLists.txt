@@ -72,8 +72,8 @@ set_target_properties(aether_c_fortran PROPERTIES
     Fortran_MODULE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/Modules"
     FOLDER bindings/c)
 target_include_directories(aether_c_fortran PRIVATE $<TARGET_PROPERTY:aether,Fortran_MODULE_DIRECTORY>)
-add_library(aether_c SHARED ${C_C_LIB_SRCS} ${C_LIB_HDRS})
 
+add_library(aether_c SHARED ${C_C_LIB_SRCS} ${C_LIB_HDRS})
 set_target_properties(aether_c PROPERTIES
     FOLDER bindings/c
     C_VISIBILITY_PRESET hidden
