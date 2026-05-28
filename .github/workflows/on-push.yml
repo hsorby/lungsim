@@ -115,14 +115,14 @@ jobs:
       - name: Test Fortran
         shell: bash
         run: |
-          $fc --version
+          $FC --version
           hello.f90 << EOF
           program hello
             ! This is a comment line; it is ignored by the compiler
             print *, 'Hello, World!'
           end program hello
           EOF
-          $fc hello.f90 -o hello.exe
+          $FC hello.f90 -o hello.exe
           ./hello.exe
 
       - name: Generate build instructions - Windows
