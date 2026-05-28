@@ -255,7 +255,6 @@ contains
 !!!#############################################################################
   !> Lymphatic indices
   subroutine lymphatic_indices
-    !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_LYMPHATIC_INDICES" :: LYMPHATIC_INDICES
     
     character(len=60) :: sub_name
     
