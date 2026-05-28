@@ -101,10 +101,14 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Set Python path
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          echo "PYTHON=${{ env.pythonLocation }}/python" >> $GITHUB_ENV
+
       - name: Install numpy
         run: |
-          where python
-          where pip
           pip install numpy
 
       - name: Install CMake and Ninja
@@ -120,7 +124,7 @@ jobs:
           where pip
           pip list
 
-          cmake -S lungsim -B build-lungsim -G Ninja -D AETHER_ENABLE_TESTS=FALSE -D Python_EXECUTABLE="C:\hostedtoolcache\windows\Python\3.10.11\x64\python.exe" -D CMAKE_C_COMPILER=cl -D CMAKE_CXX_COMPILER=cl
+          cmake -S lungsim -B build-lungsim -G Ninja -D AETHER_ENABLE_TESTS=FALSE -D Python_EXECUTABLE="${{ env.PYTHON }}" -D CMAKE_C_COMPILER=cl -D CMAKE_CXX_COMPILER=cl
           REM cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%.exe" -D CMAKE_C_COMPILER="%CC%.exe" -D CMAKE_CXX_COMPILER="%CXX%.exe" -D AETHER_ENABLE_TESTS=FALSE
 
       - name: Build lungsim
