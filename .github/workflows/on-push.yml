@@ -5,7 +5,7 @@ on: [push]
 jobs:
   pipeline:
     name: windows build
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       # Useful for debugging dll load issues.
       #    - name: Download Dependencies
@@ -116,16 +116,10 @@ jobs:
         if: runner.os == 'Windows'
         shell: cmd
         run: |
-          call "C:\Program Files (x86)\Intel\oneAPI\setvars.bat"
-          $abs_fc = where ${{ steps.setup-fortran.outputs.fc }}
           $fixed_abs_fc = "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin/ifx.exe"
           echo "Absolute path to fc: $fixed_abs_fc"
 
-          echo "Absolute path to fc: $abs_fc"
-          where ${{ steps.setup-fortran.outputs.fc }}
-          which ${{ steps.setup-fortran.outputs.fc }}
-
-          cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="$fixed_abs_fc" -D AETHER_ENABLE_TESTS=FALSE -D CMAKE_BUILD_TYPE=Release
+          cmake -S lungsim -B build-lungsim -A x64 -T "IntelLLVM" -D CMAKE_Fortran_COMPILER="$fixed_abs_fc" -D AETHER_ENABLE_TESTS=FALSE
 
       - name: Build lungsim
         run: |
