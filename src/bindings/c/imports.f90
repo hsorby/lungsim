@@ -19,11 +19,7 @@ contains
 
     call strncpy(filename_f, FLOWFILE, filename_len)
 
-#if defined _WIN32 && defined __INTEL_COMPILER
-    call so_import_capillary(filename_f)
-#else
     call import_capillary(filename_f)
-#endif
 
   end subroutine import_capillary_c
   
@@ -43,11 +39,7 @@ contains
 
     call strncpy(filename_f, FLOWFILE, filename_len)
 
-#if defined _WIN32 && defined __INTEL_COMPILER
-    call so_import_terminal(filename_f)
-#else
     call import_terminal(filename_f)
-#endif
 
   end subroutine import_terminal_c
   

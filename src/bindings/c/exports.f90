@@ -181,11 +181,7 @@ contains
     call strncpy(filename_f, EXNODEFILE, filename_len)
     call strncpy(name_f, name, name_len)
 
-#if defined _WIN32 && defined __INTEL_COMPILER
-    call so_export_terminal_lymphatic(filename_f, name_f)
-#else
     call export_terminal_lymphatic(filename_f, name_f)
-#endif
 
   end subroutine export_terminal_lymphatic_c
 
