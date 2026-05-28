@@ -120,6 +120,8 @@ jobs:
 
           abs_fc=$(command -v ${{ steps.setup-fortran.outputs.fc }})
           echo "Absolute path to ifort: $abs_fc"
+          where ${{ steps.setup-fortran.outputs.fc }}
+          which ${{ steps.setup-fortran.outputs.fc }}
 
           cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="${abs_fc}" -D AETHER_ENABLE_TESTS=FALSE -D CMAKE_BUILD_TYPE=Release
 
