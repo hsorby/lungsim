@@ -112,6 +112,19 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Test Fortran
+        shell: bash
+        run: |
+          $fc --version
+          hello.f90 << EOF
+          program hello
+            ! This is a comment line; it is ignored by the compiler
+            print *, 'Hello, World!'
+          end program hello
+          EOF
+          $fc hello.f90 -o hello.exe
+          ./hello.exe
+
       - name: Generate build instructions - Windows
         if: runner.os == 'Windows'
         shell: cmd
