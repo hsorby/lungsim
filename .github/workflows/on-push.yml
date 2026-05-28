@@ -118,6 +118,8 @@ jobs:
         run: |
           echo "Generating build instructions for Windows"
           echo "Fortran compiler: ${{ steps.setup-fortran.outputs.fc }}"
+          where ${{ steps.setup-fortran.outputs.fc }}
+          which ${{ steps.setup-fortran.outputs.fc }}
           cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="${{ steps.setup-fortran.outputs.fc }}" -D AETHER_ENABLE_TESTS=FALSE -D CMAKE_BUILD_TYPE=Release
 
       - name: Generate build instructions - Linux
