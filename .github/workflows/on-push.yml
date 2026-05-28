@@ -116,12 +116,14 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           $abs_fc = where ${{ steps.setup-fortran.outputs.fc }}
+          $fixed_abs_fc = "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin/ifx.exe"
+          echo "Absolute path to fc: $fixed_abs_fc"
 
           echo "Absolute path to fc: $abs_fc"
           where ${{ steps.setup-fortran.outputs.fc }}
           which ${{ steps.setup-fortran.outputs.fc }}
 
-          cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="$abs_fc" -D AETHER_ENABLE_TESTS=FALSE -D CMAKE_BUILD_TYPE=Release
+          cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="$fixed_abs_fc" -D AETHER_ENABLE_TESTS=FALSE -D CMAKE_BUILD_TYPE=Release
 
       - name: Build lungsim
         run: |
