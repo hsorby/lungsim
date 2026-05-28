@@ -112,17 +112,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Generate build instructions
-        shell: bash
+      - name: Generate build instructions - Windows
+        if: runner.os == 'Windows'
         run: |
-          echo "Generating build instructions for Windows"
-          echo "Fortran compiler: ${{ steps.setup-fortran.outputs.fc }}"
-
-          if [ "${{ runner.os }}" == "Windows" ]; then
-            abs_fc=$(where ${{ steps.setup-fortran.outputs.fc }})
-          else
-            abs_fc=$(command -v ${{ steps.setup-fortran.outputs.fc }})
-          fi
+          abs_fc=$(where ${{ steps.setup-fortran.outputs.fc }})
 
           echo "Absolute path to fc: $abs_fc"
           where ${{ steps.setup-fortran.outputs.fc }}
