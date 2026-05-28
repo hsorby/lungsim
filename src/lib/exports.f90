@@ -841,12 +841,12 @@ contains
           do nj=1,3
              write(10,'(2X,4(1X,F12.6))') (node_xyz(nj,np))      !Coordinates
           enddo !njj2
-          write(10,'(2X,4(1X,e12.6))') (unit_field(nu_av_flux,NOLIST))
-          write(10,'(2X,4(1X,e12.6))') (unit_field(nu_intsat,nolist))
-          write(10,'(2X,4(1X,e12.6))') (unit_field(nu_tt,nolist))
-          write(10,'(2X,4(1X,e12.6))') (unit_field(nu_blood_press,nolist))
-          write(10,'(2X,4(1X,e12.6))') (unit_field(nu_sa,nolist))
-          write(10,'(2X,4(1X,e12.6))') (unit_field(nu_lymphflow,nolist))
+          write(10,'(2X,4(1X,e14.6))') (unit_field(nu_av_flux,NOLIST))
+          write(10,'(2X,4(1X,e14.6))') (unit_field(nu_intsat,nolist))
+          write(10,'(2X,4(1X,e14.6))') (unit_field(nu_tt,nolist))
+          write(10,'(2X,4(1X,e14.6))') (unit_field(nu_blood_press,nolist))
+          write(10,'(2X,4(1X,e14.6))') (unit_field(nu_sa,nolist))
+          write(10,'(2X,4(1X,e14.6))') (unit_field(nu_lymphflow,nolist))
           
           FIRST_NODE=.FALSE.
           np_last=np

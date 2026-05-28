@@ -325,7 +325,7 @@ contains
     unit_field(nu_time,nunit) = time
     unit_field(nu_av_flux,nunit) = total_flux/time
     unit_field(nu_lymphflow,nunit) = initial_lymphatic_volume/time
-    !write(*,'('' T='',e12.3,'': intsat='',e12.6,'' %; flux='',e12.3,'' ul/s; avFlux='',e12.3,'' ul/s; lyFlo='',e12.6,'' ul/s'')') &
+    !write(*,'('' T='',e12.3,'': intsat='',e14.6,'' %; flux='',e12.3,'' ul/s; avFlux='',e12.3,'' ul/s; lyFlo='',e14.6,'' ul/s'')') &
     !     unit_field(nu_time,nunit),unit_field(nu_intsat,nunit),&
     !     unit_field(nu_flux,nunit),unit_field(nu_av_flux,nunit),unit_field(nu_lymphflow,nunit)
 
