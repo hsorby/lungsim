@@ -24,7 +24,7 @@ jobs:
       matrix:
         config:
         - {
-            name: "Windows 2022 MSVC",
+            name: "Windows 2025 MSVC (Ninja)",
             build_type: "Release",
             os: windows-2025,
           }
@@ -142,11 +142,17 @@ jobs:
       with:
         python-version: ${{ inputs.python_version || '3.10' }}
 
-    - name: Set Python path
+    - name: Set Python path - Windows
       if: runner.os == 'Windows'
       shell: bash
       run: |
         echo "PYTHON=${{ env.pythonLocation }}/python.exe" >> $GITHUB_ENV
+
+    - name: Set Python path - Non-Windows
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        echo "PYTHON=${{ env.pythonLocation }}/python" >> $GITHUB_ENV
 
     - name: Install numpy
       run: |
@@ -187,6 +193,7 @@ jobs:
         cmake \
           -S lungsim \
           -B build-lungsim \
+          -D Python_EXECUTABLE="${{ env.PYTHON }}" \
           -D CMAKE_Fortran_COMPILER=${{ matrix.config.gfortran || 'gfortran' }} \
           -D AETHER_ENABLE_TESTS=FALSE \
           -D CMAKE_BUILD_TYPE=${{ inputs.build_type || matrix.config.build_type }}
@@ -199,8 +206,8 @@ jobs:
       shell: bash
       run: |
         pip install wheel
-        pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
+        pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python
 
-        python $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
+        ${{ env.PYTHON }} $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
 
         exit $?
