@@ -114,6 +114,7 @@ jobs:
 
       - name: Generate build instructions - Windows
         if: runner.os == 'Windows'
+        shell: cmd
         run: |
           call "C:\Program Files (x86)\Intel\oneAPI\setvars.bat"
           $abs_fc = where ${{ steps.setup-fortran.outputs.fc }}
