@@ -130,7 +130,7 @@ jobs:
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
     - name: Checkout lungsim
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         path: lungsim
 
