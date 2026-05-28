@@ -120,7 +120,7 @@ jobs:
           echo "Fortran compiler: ${{ steps.setup-fortran.outputs.fc }}"
           abs_fc=$(which ${{ steps.setup-fortran.outputs.fc }})
           if [ ${{ runner.os }} == 'Windows' ]; then abs_fc=$(where ${{ steps.setup-fortran.outputs.fc }}); fi
-          echo "Absolute path to ifort: ${abs_fc}"
+          echo "Absolute path to ifort: $abs_fc"
           where ${{ steps.setup-fortran.outputs.fc }}
           which ${{ steps.setup-fortran.outputs.fc }}
 
