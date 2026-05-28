@@ -336,8 +336,8 @@ contains
 !!!#############################################################################
 
   subroutine lymphatic_transport(filename)
-    !*lymphatic_transport:* whole system transport
     !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_LYMPHATIC_TRANSPORT" :: LYMPHATIC_TRANSPORT
+    !*lymphatic_transport:* whole system transport
 
     character(len=MAX_FILENAME_LEN), intent(in) :: filename
     ! Local parameters
