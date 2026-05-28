@@ -87,22 +87,6 @@ jobs:
         with:
           path: lungsim
 
-      - name: Run get Fortran environment script
-        id: setup-fortran-win
-        if: runner.os == 'WindowsX'
-        shell: bash
-        working-directory: lungsim
-        run: |
-          latest_version=`.github/scripts/oneapi-env-vars-location.bat`
-          echo "ifort compiler: $latest_version"
-          # latest_version=`echo $latest_version | tr '\' '/'`
-          # echo $latest_version
-          # echo "::set-output name=env_bat::${latest_version}"
-          echo "fc=${latest_version}" >> $GITHUB_OUTPUT
-          redist_location=`.github/scripts/oneapi-redist-location.bat`
-          echo "redist location: ${redist_location}"
-          echo "redist_loc=${redist_location}" >> $GITHUB_OUTPUT
-
       - name: Report CMake version
         run: cmake --version
 
@@ -116,28 +100,6 @@ jobs:
         shell: cmd
         run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-          where link
-
-      - name: Diagnose toolchain
-        shell: cmd
-        run: |
-          where ifx
-          where link
-          echo %LIB%
-          echo %INCLUDE%
-
-      - name: Test Fortran
-        shell: bash
-        run: |
-          $FC --version
-          cat << EOF > hello.f90
-          program hello
-            ! This is a comment line; it is ignored by the compiler
-            print *, 'Hello, World!'
-          end program hello
-          EOF
-          $FC hello.f90 -o hello.exe
-          ./hello.exe
 
       - name: Install CMake and Ninja
         uses: lukka/get-cmake@latest
@@ -149,7 +111,8 @@ jobs:
           set fixed_abs_fc="C:\Program Files (x86)\Intel\oneAPI\compiler\latest\bin\ifx.exe"
           echo "Absolute path to fc: %fixed_abs_fc%"
 
-          cmake -S lungsim -B build-lungsim -D AETHER_ENABLE_TESTS=FALSE
+          REM cmake -S lungsim -B build-lungsim -G Ninja -D AETHER_ENABLE_TESTS=FALSE
+          cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%" -D CMAKE_C_COMPILER="%CC%" -D CMAKE_CXX_COMPILER="%CXX%" -D AETHER_ENABLE_TESTS=FALSE
 
       - name: Build lungsim
         run: |
