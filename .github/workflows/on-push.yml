@@ -118,8 +118,13 @@ jobs:
           echo "Generating build instructions for Windows"
           echo "Fortran compiler: ${{ steps.setup-fortran.outputs.fc }}"
 
-          abs_fc=$(command -v ${{ steps.setup-fortran.outputs.fc }})
-          echo "Absolute path to ifort: $abs_fc"
+          if [ "${{ runner.os }}" == "Windows" ]; then
+            abs_fc=$(where ${{ steps.setup-fortran.outputs.fc }})
+          else
+            abs_fc=$(command -v ${{ steps.setup-fortran.outputs.fc }})
+          fi
+
+          echo "Absolute path to fc: $abs_fc"
           where ${{ steps.setup-fortran.outputs.fc }}
           which ${{ steps.setup-fortran.outputs.fc }}
 
