@@ -33,7 +33,6 @@ contains
 !!!#############################################################################
 
   subroutine alveolar_capillary_flux(ne,write_out)
-    !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_ALVEOLAR_CAPILLARY_FLUX" :: ALVEOLAR_CAPILLARY_FLUX
     !*alveolar_capillary_flux:* calculate fluid flux from blood to interstitium
 
     use other_consts,only: pi

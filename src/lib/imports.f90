@@ -37,7 +37,6 @@ contains
   !>*import_capillary:* This subroutine reads in the results for the micro-circulatory
   ! components (capillary bed within 'units') of a perfusion model .
   subroutine import_capillary(micro_unit_file)
-    !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_IMPORT_CAPILLARY" :: IMPORT_CAPILLARY
     
     character(len=MAX_FILENAME_LEN),intent(in) :: micro_unit_file
     !local variables
@@ -192,7 +191,6 @@ contains
 !
 !>*import_terminal:* This subroutine reads in the content of an exnode field file
  subroutine import_terminal(EXFILE)
- !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_IMPORT_TERMINAL" :: IMPORT_TERMINAL
 
    character(len=MAX_FILENAME_LEN),intent(in) :: EXFILE
    !local variables

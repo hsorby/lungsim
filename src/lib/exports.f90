@@ -772,7 +772,6 @@ contains
 !
 
   subroutine export_terminal_lymphatic(EXNODEFILE, name)
-  !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_EXPORT_TERMINAL_LYMPHATIC" :: EXPORT_TERMINAL_LYMPHATIC
 
 !!! Parameters
     character(len=MAX_FILENAME_LEN),intent(in) :: EXNODEFILE

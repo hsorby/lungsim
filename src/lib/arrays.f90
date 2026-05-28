@@ -170,7 +170,7 @@ contains
   end subroutine set_node_field_value
 
   subroutine update_parameter(parameter_name, parameter_value)
-    !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_UPDATE_PARAMETER" :: UPDATE_PARAMETER
+
     implicit none
     real(dp), intent(in) :: parameter_value
     character(len=*), intent(in) :: parameter_name

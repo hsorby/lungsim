@@ -66,7 +66,6 @@ contains
 !##############################################################################
 !
   subroutine initial_gasexchange(initial_concentration,surface_area,V_cap)
-    !DEC$ ATTRIBUTES DLLEXPORT,ALIAS:"SO_INITIAL_GASEXCHANGE" :: INITIAL_GASEXCHANGE
 
     !local variables
     real(dp),intent(in) :: initial_concentration
