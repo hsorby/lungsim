@@ -41,11 +41,7 @@ contains
     use indices, only: lymphatic_indices
     implicit none
 
-#if defined _WIN32 && defined __INTEL_COMPILER
-    call so_lymphatic_indices()
-#else
     call lymphatic_indices()
-#endif
 
   end subroutine lymphatic_indices_c
 
