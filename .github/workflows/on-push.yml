@@ -127,35 +127,18 @@ jobs:
         run: |
           cmake --build build-lungsim --config Release
 
+      - name: Setup runtime DLL path
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          echo "Adding Intel runtime to PATH"
+          echo "PATH=C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin;%PATH%" >> $GITHUB_ENV
+
       - name: Test lungsim
         shell: bash
         run: |
-          if [ "${{ runner.os }}" == "WindowsOFF" ]; then
-            multi_config_dir=/${{ matrix.config.build_type }}
-          fi
-
-          echo "Current directory: $(pwd)"
-          ls $GITHUB_WORKSPACE/
-          echo "00000"
-          ls $GITHUB_WORKSPACE/build-lungsim/
-          echo "00000"
-          ls $GITHUB_WORKSPACE/build-lungsim/src/
-          echo "00000"
-          ls $GITHUB_WORKSPACE/build-lungsim/src/bindings/
-          echo "00000"
-          ls $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
-
           pip install wheel
           pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
-
-          if [ "${{ runner.os }}" == "Windows" ]; then
-            # Horrible hack for GitHub actions Windows virtual machine.
-            prefix_path=$(dirname $(dirname python))
-            
-            cp $prefix_path/Library/bin/libifcoremd.dll $GITHUB_WORKSPACE/venv/Lib/site-packages/aether
-            cp $prefix_path/Library/bin/libmmd.dll $GITHUB_WORKSPACE/venv/Lib/site-packages/aether
-            cp $prefix_path/Library/bin/svml_dispmd.dll $GITHUB_WORKSPACE/venv/Lib/site-packages/aether
-          fi
 
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
 
