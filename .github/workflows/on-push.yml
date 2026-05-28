@@ -142,6 +142,13 @@ jobs:
           $FC hello.f90 -o hello.exe
           ./hello.exe
 
+      - name: Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+        
+      - name: Configure MSVC (Windows only)
+        if: ${{ runner.os == 'Windows' }}
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Generate build instructions - Windows
         if: runner.os == 'Windows'
         shell: cmd
