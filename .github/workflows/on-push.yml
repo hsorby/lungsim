@@ -47,9 +47,10 @@ jobs:
       #      with:
       #        path: C:\Program Files (x86)\Intel\oneAPI\compiler
       #        key: install-${{ env.WINDOWS_HPCKIT_URL }}-${{ env.WINDOWS_FORTRAN_COMPONENTS }}-compiler-${{ hashFiles('**/oneapi/scripts/cache_exclude_windows.sh') }}
-      - name: fortran-lang/setup-fortran@v1
+      - name: Setup Fortran compiler
         id: setup-fortran
         if: runner.os == 'Windows'
+        uses: fortran-lang/setup-fortran@v1
         with:
           compiler: intel
           version: 2025.0
