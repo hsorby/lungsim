@@ -134,6 +134,17 @@ jobs:
             multi_config_dir=/${{ matrix.config.build_type }}
           fi
 
+          echo "Current directory: $(pwd)"
+          ls $GITHUB_WORKSPACE/
+          echo "00000"
+          ls $GITHUB_WORKSPACE/build-lungsim/
+          echo "00000"
+          ls $GITHUB_WORKSPACE/build-lungsim/src/
+          echo "00000"
+          ls $GITHUB_WORKSPACE/build-lungsim/src/bindings/
+          echo "00000"
+          ls $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
+
           pip install wheel
           pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
 
