@@ -53,7 +53,7 @@ jobs:
         uses: fortran-lang/setup-fortran@v1
         with:
           compiler: intel
-          version: 2025.0
+          version: 2025.2
 
       #      working-directory: oneapi
       #      shell: bash
