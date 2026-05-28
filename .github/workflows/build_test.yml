@@ -176,13 +176,13 @@ jobs:
       if: runner.os == 'Windows'
       shell: cmd
       run: |
-        cmake \
-          -S lungsim \
-          -B build-lungsim \
-          -G Ninja \
-          -D AETHER_ENABLE_TESTS=FALSE \
-          -D Python_EXECUTABLE="${{ env.PYTHON }}" \
-          -D CMAKE_C_COMPILER=cl \
+        cmake ^
+          -S lungsim ^
+          -B build-lungsim ^
+          -G Ninja ^
+          -D AETHER_ENABLE_TESTS=FALSE ^
+          -D Python_EXECUTABLE="${{ env.PYTHON }}" ^
+          -D CMAKE_C_COMPILER=cl ^
           -D CMAKE_CXX_COMPILER=cl
         REM cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%.exe" -D CMAKE_C_COMPILER="%CC%.exe" -D CMAKE_CXX_COMPILER="%CXX%.exe" -D AETHER_ENABLE_TESTS=FALSE
 
