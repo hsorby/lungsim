@@ -15,11 +15,7 @@ contains
     integer,intent(in) :: num_nodes
     logical,intent(in) :: write_out
 
-#if defined _WIN32 && defined __INTEL_COMPILER
-    call so_alveolar_capillary_flux(num_nodes,write_out)
-#else
     call alveolar_capillary_flux(num_nodes,write_out)
-#endif
     
   end subroutine alveolar_capillary_flux_c
 !
@@ -38,11 +34,7 @@ contains
     character(len=MAX_FILENAME_LEN) :: filename_f
 
     call strncpy(filename_f, filename, filename_len)
-#if defined _WIN32 && defined __INTEL_COMPILER
-    call so_lymphatic_transport(filename_f)
-#else
     call lymphatic_transport(filename_f)
-#endif
     
   end subroutine lymphatic_transport_c
 
