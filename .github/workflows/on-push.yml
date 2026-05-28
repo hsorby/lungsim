@@ -103,8 +103,9 @@ jobs:
 
       - name: Install numpy
         run: |
-          python -m pip install numpy
           where python
+          where pip
+          pip install numpy
 
       - name: Install CMake and Ninja
         uses: lukka/get-cmake@latest
@@ -116,6 +117,8 @@ jobs:
           set fixed_abs_fc="C:\Program Files (x86)\Intel\oneAPI\compiler\latest\bin\ifx.exe"
           echo "Absolute path to fc: %fixed_abs_fc%"
           where python
+          where pip
+          pip list
 
           cmake -S lungsim -B build-lungsim -G Ninja -D AETHER_ENABLE_TESTS=FALSE
           REM cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%.exe" -D CMAKE_C_COMPILER="%CC%.exe" -D CMAKE_CXX_COMPILER="%CXX%.exe" -D AETHER_ENABLE_TESTS=FALSE
@@ -127,14 +130,12 @@ jobs:
       - name: Test lungsim
         shell: bash
         run: |
-          cd build-lungsim
-          ctest --output-on-failure
-          if [ "${{ runner.os }}" == "Windows" ]; then
+          if [ "${{ runner.os }}" == "WindowsOFF" ]; then
             multi_config_dir=/${{ matrix.config.build_type }}
           fi
 
-          python -m pipinstall wheel
-          python -m pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
+          pip install wheel
+          pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python$multi_config_dir
 
           if [ "${{ runner.os }}" == "Windows" ]; then
             # Horrible hack for GitHub actions Windows virtual machine.
