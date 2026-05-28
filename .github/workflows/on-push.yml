@@ -116,7 +116,7 @@ jobs:
         shell: bash
         run: |
           $FC --version
-          hello.f90 << EOF
+          cat << EOF > hello.f90
           program hello
             ! This is a comment line; it is ignored by the compiler
             print *, 'Hello, World!'
