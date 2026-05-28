@@ -115,6 +115,7 @@ jobs:
       - name: Generate build instructions - Windows
         if: runner.os == 'Windows'
         run: |
+          call "C:\Program Files (x86)\Intel\oneAPI\setvars.bat"
           $abs_fc = where ${{ steps.setup-fortran.outputs.fc }}
           $fixed_abs_fc = "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin/ifx.exe"
           echo "Absolute path to fc: $fixed_abs_fc"
