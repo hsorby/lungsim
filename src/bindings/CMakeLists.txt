@@ -1,7 +1,7 @@
 
 add_subdirectory(c)
 
-find_package(SWIG QUIET)
+find_package(SWIG)
 mark_as_advanced(SWIG_EXECUTABLE)
 
 if(SWIG_FOUND)
@@ -13,7 +13,6 @@ if(SWIG_FOUND)
     set(Python_ROOT_DIR ${AETHER_Python_ROOT_DIR})
 
     find_package(Python ${AETHER_PREFERRED_PYTHON_VERSION} COMPONENTS Interpreter Development NumPy)
-    message(STATUS "Python_EXECUTABLE: ${Python_EXECUTABLE}")
     if(Python_FOUND)
       add_subdirectory(python)
     else()

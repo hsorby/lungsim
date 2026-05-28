@@ -208,6 +208,6 @@ jobs:
         pip install wheel
         pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python
 
-        ${{ env.PYTHON }} $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
+        python $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
 
         exit $?

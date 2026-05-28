@@ -10,6 +10,9 @@ endif ()
 if(POLICY CMP0086)
   cmake_policy(SET CMP0086 NEW)
 endif()
+if (POLICY CMP0094)
+  cmake_policy(SET CMP0094 NEW)
+endif()
 
 get_property(IS_MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
 
