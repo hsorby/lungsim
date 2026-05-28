@@ -153,7 +153,7 @@ jobs:
           $fixed_abs_fc = "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin/ifx.exe"
           echo "Absolute path to fc: $fixed_abs_fc"
 
-          cmake -S lungsim -B build-lungsim -A x64 -T "IntelLLVM" -D CMAKE_Fortran_COMPILER="$fixed_abs_fc" -D AETHER_ENABLE_TESTS=FALSE
+          cmake -S lungsim -B build-lungsim -A x64 -D CMAKE_Fortran_COMPILER="$fixed_abs_fc" -D AETHER_ENABLE_TESTS=FALSE
 
       - name: Build lungsim
         run: |
