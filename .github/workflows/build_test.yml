@@ -142,18 +142,6 @@ jobs:
       with:
         python-version: ${{ inputs.python_version || '3.10' }}
 
-    - name: Set Python path - Windows
-      if: runner.os == 'Windows'
-      shell: bash
-      run: |
-        echo "PYTHON=${{ env.pythonLocation }}/python.exe" >> $GITHUB_ENV
-
-    - name: Set Python path - Non-Windows
-      if: runner.os != 'Windows'
-      shell: bash
-      run: |
-        echo "PYTHON=${{ env.pythonLocation }}/python" >> $GITHUB_ENV
-
     - name: Install numpy
       run: |
         pip install numpy
@@ -181,7 +169,6 @@ jobs:
           -B build-lungsim ^
           -G Ninja ^
           -D AETHER_ENABLE_TESTS=FALSE ^
-          -D Python_EXECUTABLE="${{ env.PYTHON }}" ^
           -D CMAKE_C_COMPILER=cl ^
           -D CMAKE_CXX_COMPILER=cl
         REM cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%.exe" -D CMAKE_C_COMPILER="%CC%.exe" -D CMAKE_CXX_COMPILER="%CXX%.exe" -D AETHER_ENABLE_TESTS=FALSE
@@ -193,7 +180,6 @@ jobs:
         cmake \
           -S lungsim \
           -B build-lungsim \
-          -D Python_EXECUTABLE="${{ env.PYTHON }}" \
           -D CMAKE_Fortran_COMPILER=${{ matrix.config.gfortran || 'gfortran' }} \
           -D AETHER_ENABLE_TESTS=FALSE \
           -D CMAKE_BUILD_TYPE=${{ inputs.build_type || matrix.config.build_type }}
