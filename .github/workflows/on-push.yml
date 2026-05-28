@@ -111,8 +111,8 @@ jobs:
           set fixed_abs_fc="C:\Program Files (x86)\Intel\oneAPI\compiler\latest\bin\ifx.exe"
           echo "Absolute path to fc: %fixed_abs_fc%"
 
-          REM cmake -S lungsim -B build-lungsim -G Ninja -D AETHER_ENABLE_TESTS=FALSE
-          cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%.exe" -D CMAKE_C_COMPILER="%CC%.exe" -D CMAKE_CXX_COMPILER="%CXX%.exe" -D AETHER_ENABLE_TESTS=FALSE
+          cmake -S lungsim -B build-lungsim -G Ninja -D AETHER_ENABLE_TESTS=FALSE
+          REM cmake -S lungsim -B build-lungsim -D CMAKE_Fortran_COMPILER="%FC%.exe" -D CMAKE_C_COMPILER="%CC%.exe" -D CMAKE_CXX_COMPILER="%CXX%.exe" -D AETHER_ENABLE_TESTS=FALSE
 
       - name: Build lungsim
         run: |
