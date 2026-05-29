@@ -2,6 +2,9 @@ import os
 import platform
 import site
 
+import intel_fortran_rt
+print(os.path.dirname(intel_fortran_rt.__file__))
+
 if platform.system() == "Windows":
     module_dir = os.path.dirname(__file__)
     os.add_dll_directory(module_dir)
