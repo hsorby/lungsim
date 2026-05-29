@@ -3,8 +3,9 @@
 
 #include "symbol_export.h"
 
-SHO_PUBLIC void steadystate_gasexchange(double *c_art_o2, double *c_ven_o2,
-	double *p_art_co2, double *p_art_o2, double *p_i_o2, double *p_ven_co2, double *p_ven_o2, double *shunt_fraction,
-	double *VCO2, double *VO2);
+SHO_PUBLIC double steadystate_co2(double Vdot_alv);
+SHO_PUBLIC double steadystate_o2(double Vdot_alv);
+SHO_PUBLIC double get_ABG_value(const char *request);
+SHO_PUBLIC void solve_gasexchange(double t_0, double t_1, const char *phase, const char *filename);
 
 #endif /* AETHER_GAS_EXCHANGE_H */

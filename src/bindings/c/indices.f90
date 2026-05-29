@@ -35,19 +35,6 @@ contains
 !
 !######################################################################
 !
-!> Lymphatic indices
-  subroutine lymphatic_indices_c() bind(C, name="lymphatic_indices_c")
-
-    use indices, only: lymphatic_indices
-    implicit none
-
-    call lymphatic_indices()
-
-  end subroutine lymphatic_indices_c
-
-!
-!######################################################################
-!
 !> Perfusion indices
   subroutine perfusion_indices_c() bind(C, name="perfusion_indices_c")
 
