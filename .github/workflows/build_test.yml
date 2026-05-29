@@ -208,6 +208,8 @@ jobs:
           ls C:/Users/runneradmin/AppData/Roaming/Python/Python310/Scripts
           echo " 2 - Checking for presence of aether_c.dll"
           ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/intel*
+          echo "0000000"
+          find . -name libifcoremd.dll
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_info.py
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_in.py
           ls $GITHUB_WORKSPACE
