@@ -84,6 +84,8 @@ if (${CMAKE_Fortran_COMPILER_ID} STREQUAL "GNU")
     set_source_files_properties(${C_FORTRAN_LIB_SRCS} PROPERTIES COMPILE_FLAGS -cpp)
 endif ()
 
+target_include_directories(aether_c PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
 target_link_libraries(aether_c PUBLIC aether_c_fortran)
 if (SUPERLU_FOUND)
   target_link_libraries(aether_c PUBLIC superlu)

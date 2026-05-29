@@ -192,7 +192,7 @@ jobs:
       shell: bash
       run: |
         pip install wheel
-        pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python
+        pip install $GITHUB_WORKSPACE/build-lungsim/src/bindings/python/package
 
         python $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
 
