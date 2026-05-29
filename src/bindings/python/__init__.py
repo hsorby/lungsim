@@ -2,27 +2,6 @@ import os
 import platform
 import site
 
-import os
-
-try:
-    import aether.diagnostics
-except ImportError as e:
-    print("Import failed:", e)
-
-    import ctypes
-    try:
-        ctypes.CDLL("aether_c.dll")
-    except OSError as e:
-        print("Manual load failed:", e)
-
-
-import intel_fortran_rt
-print(os.path.dirname(intel_fortran_rt.__file__))
-import intel_openmp
-print(os.path.dirname(intel_openmp.__file__))
-import intel_cmplr_lib_rt
-print(os.path.dirname(intel_cmplr_lib_rt.__file__))
-
 if platform.system() == "Windows":
     module_dir = os.path.dirname(__file__)
     os.add_dll_directory(module_dir)
@@ -41,7 +20,3 @@ if platform.system() == "Windows":
             path = os.path.join(base, pkg, "bin")
             if os.path.isdir(path):
                 os.add_dll_directory(path)
-
-print("DLL search dirs:")
-for p in os.environ.get("PATH", "").split(";"):
-    print("  ", p)
