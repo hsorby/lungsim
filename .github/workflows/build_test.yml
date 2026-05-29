@@ -197,9 +197,9 @@ jobs:
 
         if [ "${{ runner.os }}" == "Windows" ]; then
           echo " 1 - Running diagnostics test"
-          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/bin
+          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/
           echo " 2 - Checking for presence of aether_c.dll"
-          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/bin/*
+          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/intel*
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_info.py
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_in.py
           ls $GITHUB_WORKSPACE
