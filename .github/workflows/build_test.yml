@@ -2,8 +2,6 @@ name: Build and Test Matrix
 
 on:
   pull_request:
-    branches: [main]
-  push:
   workflow_dispatch:
     inputs:
       build_type:
