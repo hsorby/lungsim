@@ -2,6 +2,20 @@ import os
 import platform
 import site
 
+import os
+
+try:
+    import aether.diagnostics
+except ImportError as e:
+    print("Import failed:", e)
+
+    import ctypes
+    try:
+        ctypes.CDLL("aether_c.dll")
+    except OSError as e:
+        print("Manual load failed:", e)
+
+
 import intel_fortran_rt
 print(os.path.dirname(intel_fortran_rt.__file__))
 
