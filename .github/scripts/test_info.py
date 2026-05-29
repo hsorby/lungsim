@@ -7,7 +7,7 @@ try:
 except ModuleNotFoundError as e:
   print("intel_fortran_rt not found:", e)
 
-try
+try:
   import intel_openmp
   print(os.path.dirname(intel_openmp.__file__))
 except ModuleNotFoundError as e:
