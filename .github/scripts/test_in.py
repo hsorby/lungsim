@@ -7,6 +7,6 @@ except ImportError as e:
 
     import ctypes
     try:
-        ctypes.CDLL("aether_c.dll")
+        ctypes.CDLL("C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/aether/aether_c.dll")
     except OSError as e:
         print("Manual load failed:", e)
