@@ -205,7 +205,6 @@ jobs:
           echo " 1 - scripts directory"
           ls C:/hostedtoolcache/windows/Python/3.10.11/x64/Scripts
           echo " 1 - site-packages directory"
-          ls C:/Users/runneradmin/AppData/Roaming/Python/Python310/Scripts
           echo " 2 - Checking for presence of aether_c.dll"
           ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/intel*
           echo "0000000"
