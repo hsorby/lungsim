@@ -209,6 +209,8 @@ jobs:
           ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/intel*
           echo "0000000"
           find . -name libifcoremd.dll
+          find C:/hostedtoolcache/windows/Python/3.10.11/x64/ -name libifcoremd.dll
+          echo "0000000"
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_info.py
           python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_in.py
           ls $GITHUB_WORKSPACE
