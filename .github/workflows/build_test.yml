@@ -47,13 +47,13 @@ jobs:
           }
     steps:
 # Useful for debugging dll load issues.
-#    - name: Download Dependencies
-#      if: runner.os == 'Windows'
-#      shell: bash
-#      run: |
-#        curl -L https://github.com/lucasg/Dependencies/releases/download/v1.11.1/Dependencies_x64_Release.zip -O
-#        ls
-#        unzip Dependencies_x64_Release.zip
+    - name: Download Dependencies
+      if: runner.os == 'Windows'
+      shell: bash
+      run: |
+        curl -L https://github.com/lucasg/Dependencies/releases/download/v1.11.1/Dependencies_x64_Release.zip -O
+        ls
+        unzip Dependencies_x64_Release.zip
 #    - name: Run Dependencies
 #      if: runner.os == 'Windows'
 #      shell: cmd
@@ -196,6 +196,7 @@ jobs:
 
         if [ "${{ runner.os }}" == "Windows" ]; then
           ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/aether/
+          Dependencies.exe -depth 2 -chain "C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/aether/_diagnostics.pyd"
         fi
 
         python $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
