@@ -5,6 +5,7 @@ import site
 if platform.system() == "Windows":
     module_dir = os.path.dirname(__file__)
     os.add_dll_directory(module_dir)
+    os.add_dll_directory("C:/hostedtoolcache/windows/Python/3.10.11/x64/Library/bin/")
 
     for base in site.getsitepackages() + [site.getusersitepackages()]:
         if not base:
