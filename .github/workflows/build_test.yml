@@ -198,23 +198,16 @@ jobs:
         if [ "${{ runner.os }}" == "Windows" ]; then
           echo " 1 - Running diagnostics test"
           ls C:/hostedtoolcache/windows/Python/3.10.11/x64/
+          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/aether/
           echo " 1 - DLLs directory"
-          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/DLLs
-          echo " 1 - libs directory"
-          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/libs
-          echo " 1 - scripts directory"
-          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/Scripts
-          echo " 1 - site-packages directory"
-          echo " 2 - Checking for presence of aether_c.dll"
-          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/intel*
+          ls C:/hostedtoolcache/windows/Python/3.10.11/x64/Library/bin/
           echo "0000000"
-          find . -name libifcoremd.dll
           find C:/hostedtoolcache/windows/Python/3.10.11/x64/ -name libifcoremd.dll
           echo "0000000"
-          python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_info.py
-          python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_in.py
-          ls $GITHUB_WORKSPACE
-          $GITHUB_WORKSPACE/Dependencies.exe -depth 2 -chain "C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/aether/_diagnostics.pyd"
+          #python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_info.py
+          #python $GITHUB_WORKSPACE/lungsim/.github/scripts/test_in.py
+          #ls $GITHUB_WORKSPACE
+          #$GITHUB_WORKSPACE/Dependencies.exe -depth 2 -chain "C:/hostedtoolcache/windows/Python/3.10.11/x64/lib/site-packages/aether/_diagnostics.pyd"
         fi
 
         python $GITHUB_WORKSPACE/lungsim/.github/scripts/diagnostics_test.py
