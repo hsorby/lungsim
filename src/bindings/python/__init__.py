@@ -18,6 +18,10 @@ except ImportError as e:
 
 import intel_fortran_rt
 print(os.path.dirname(intel_fortran_rt.__file__))
+import intel_openmp
+print(os.path.dirname(intel_openmp.__file__))
+import intel_cmplr_lib_rt
+print(os.path.dirname(intel_cmplr_lib_rt.__file__))
 
 if platform.system() == "Windows":
     module_dir = os.path.dirname(__file__)
