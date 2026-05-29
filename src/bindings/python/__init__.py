@@ -3,7 +3,9 @@ import platform
 import site
 
 if platform.system() == "Windows":
-    # Look through all site-packages dirs
+    module_dir = os.path.dirname(__file__)
+    os.add_dll_directory(module_dir)
+
     for base in site.getsitepackages() + [site.getusersitepackages()]:
         if not base:
             continue
@@ -15,6 +17,10 @@ if platform.system() == "Windows":
             "intel_cmplr_lic_rt",
             "impi_rt",
         ):
-            candidate = os.path.join(base, pkg, "bin")
-            if os.path.isdir(candidate):
-                os.add_dll_directory(candidate)
+            path = os.path.join(base, pkg, "bin")
+            if os.path.isdir(path):
+                os.add_dll_directory(path)
+
+print("DLL search dirs:")
+for p in os.environ.get("PATH", "").split(";"):
+    print("  ", p)
