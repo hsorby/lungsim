@@ -151,7 +151,7 @@ jobs:
       run: sudo apt-get install libsuperlu-dev
 
     - name: Install SWIG 4.2.1
-      if: runner.os == 'macOS'
+      if: runner.os == 'macOSOFF'
       run: |
         brew install automake autoconf libtool pkg-config pcre2 bison
         curl -L https://github.com/swig/swig/archive/refs/tags/v4.2.1.tar.gz | tar xz
@@ -165,8 +165,8 @@ jobs:
       if: runner.os == 'macOS'
       shell: bash
       run: |
+        brew install swig
         swig -version
-        # brew install swig
 
     - name: Install CMake and Ninja
       if: runner.os == 'Windows'
