@@ -153,7 +153,7 @@ jobs:
     - name: Install SWIG
       if: runner.os == 'macOS'
       shell: bash
-      run: brew install swig@4.2.1
+      run: brew install swig
 
     - name: Install CMake and Ninja
       if: runner.os == 'Windows'
