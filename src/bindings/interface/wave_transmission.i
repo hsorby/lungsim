@@ -14,7 +14,7 @@
 %include "numpy.i"
 
 %init %{
-  import_array1(NULL);
+  import_array();
 %}
 
 %apply (int DIM1, double* IN_ARRAY1) {(int len1, double* vec1),
