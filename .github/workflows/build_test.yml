@@ -108,21 +108,9 @@ jobs:
       if: runner.os == 'Windows'
       shell: cmd
       run: |
-        echo "========= one ========="
-        dir "C:\Program Files\"
-        echo "========= two ========="
-        dir "C:\Program Files\Microsoft Visual Studio\"
-        echo "========= three ========="
-        dir "C:\Program Files\Microsoft Visual Studio\18\"
-        echo "========= four ========="
-        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\"
-        echo "========= five ========="
-        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\"
-        echo "========= six ========="
-        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\"
-        echo "========= seven ========="
-        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build"
         call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        echo "========= PATH ========="
+        echo "%PATH%"
 
     - name: Checkout lungsim
       uses: actions/checkout@v6
@@ -160,6 +148,9 @@ jobs:
       if: runner.os == 'Windows'
       shell: cmd
       run: |
+        echo "FC: %FC%"
+        echo "CC: %CC%"
+        echo "CXX: %CXX%"
         cmake ^
           -S lungsim ^
           -B build-lungsim ^
