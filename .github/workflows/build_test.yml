@@ -105,16 +105,21 @@ jobs:
 #      run: scripts/cache_exclude_windows.ps1
 
     - name: Setup MSVC environment
-      if: runner.os == 'Windows'
-      shell: cmd
-      run: |
-        call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-        echo "========= PATH ========="
-        echo "%PATH%"
-        echo "------- compilers -------"
-        echo "FC: %FC%"
-        echo "CC: %CC%"
-        echo "CXX: %CXX%"
+      uses: TheMrMilchmann/setup-msvc-dev@v4
+      with:
+        arch: x64
+
+    # - name: Setup MSVC environment
+    #   if: runner.os == 'Windows'
+    #   shell: cmd
+    #   run: |
+    #     call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+    #     echo "========= PATH ========="
+    #     echo "%PATH%"
+    #     echo "------- compilers -------"
+    #     echo "FC: %FC%"
+    #     echo "CC: %CC%"
+    #     echo "CXX: %CXX%"
 
     - name: Checkout lungsim
       uses: actions/checkout@v6
@@ -155,7 +160,7 @@ jobs:
         echo "FC: %FC%"
         echo "CC: %CC%"
         echo "CXX: %CXX%"
-        call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        # call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
         echo "========= PATH ========="
         echo "%PATH%"
 
