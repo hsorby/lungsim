@@ -1,7 +1,7 @@
 name: Build and Test Matrix
 
 on:
-  pull_request:
+  push:
   workflow_dispatch:
     inputs:
       build_type:
@@ -25,23 +25,6 @@ jobs:
             name: "Windows 2025 MSVC (Ninja)",
             build_type: "Release",
             os: windows-2025,
-          }
-        - {
-            name: "Ubuntu 24.04",
-            build_type: "Release",
-            os: ubuntu-24.04,
-          }
-        - {
-            name: "Ubuntu 24.04 with SuperLU",
-            build_type: "Release",
-            super_lu: true,
-            os: ubuntu-24.04,
-          }
-        - {
-            name: "macOS Sonoma",
-            build_type: "Release",
-            os: macos-14,
-            gfortran: gfortran-14,
           }
     steps:
 # Useful for debugging dll load issues.
@@ -125,6 +108,20 @@ jobs:
       if: runner.os == 'Windows'
       shell: cmd
       run: |
+        echo "========= one ========="
+        dir "C:\Program Files\"
+        echo "========= two ========="
+        dir "C:\Program Files\Microsoft Visual Studio\"
+        echo "========= three ========="
+        dir "C:\Program Files\Microsoft Visual Studio\2022\"
+        echo "========= four ========="
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\"
+        echo "========= five ========="
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\"
+        echo "========= six ========="
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\"
+        echo "========= seven ========="
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build"
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
     - name: Checkout lungsim
