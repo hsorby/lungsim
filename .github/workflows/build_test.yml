@@ -111,6 +111,10 @@ jobs:
         call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
         echo "========= PATH ========="
         echo "%PATH%"
+        echo "------- compilers -------"
+        echo "FC: %FC%"
+        echo "CC: %CC%"
+        echo "CXX: %CXX%"
 
     - name: Checkout lungsim
       uses: actions/checkout@v6
