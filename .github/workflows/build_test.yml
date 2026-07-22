@@ -113,16 +113,16 @@ jobs:
         echo "========= two ========="
         dir "C:\Program Files\Microsoft Visual Studio\"
         echo "========= three ========="
-        dir "C:\Program Files\Microsoft Visual Studio\2022\"
+        dir "C:\Program Files\Microsoft Visual Studio\18\"
         echo "========= four ========="
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\"
+        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\"
         echo "========= five ========="
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\"
+        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\"
         echo "========= six ========="
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\"
+        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\"
         echo "========= seven ========="
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build"
-        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        dir "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build"
+        call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
     - name: Checkout lungsim
       uses: actions/checkout@v6
